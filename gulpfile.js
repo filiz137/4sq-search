@@ -9,15 +9,15 @@ gulp.task('serve', ['sass'], function() {
         server: "./"
     });
 
-    gulp.watch("./sass/*.scss", ['sass']);
+    gulp.watch("./sass/**/*.scss", ['sass']);
     gulp.watch("./*.html").on('change', browserSync.reload);
-    gulp.watch("./js/*.js").on('change', browserSync.reload);
+    gulp.watch("./assets/js/*.js").on('change', browserSync.reload);
 });
 
 gulp.task('sass', function () {
-  return gulp.src('./sass/**/*.scss')
+  return gulp.src("./sass/**/*.scss")
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest("./assets/css"))
     .pipe(browserSync.stream());
 });
 
