@@ -1,0 +1,16 @@
+footer {
+    background-color: #f0f0f0;
+    height: 100px;
+    display: flex;
+	flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    order: 3;
+}
+.footer-menu {
+    &_link {
+        color: $grey;
+        font-size: 12px;
+        font-weight: bold;
+    }
+}

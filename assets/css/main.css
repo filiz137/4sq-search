@@ -439,9 +439,37 @@ html {
   font-size: 16px;
 }
 
+footer {
+  background-color: #f0f0f0;
+  height: 100px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  order: 3;
+}
+
+.footer-menu_link {
+  color: #9b9b9b;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.home-title_big {
+  font-size: 55px;
+  color: #ffffff;
+}
+
+.home-title_sub {
+  font-size: 16px;
+  color: #ffffff;
+}
+
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
   font-family: 'Gotham-Book';
   font-size: 14px;
   font-size: 0.875rem;
@@ -449,4 +477,17 @@ body {
   line-height: 1.4rem;
   background-color: #f9f9f9;
   color: #4a4a4a;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #9b9b9b;
+}
+
+a:hover {
+  color: #9b9b9b;
 }
