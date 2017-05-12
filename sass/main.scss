@@ -1,5 +1,20 @@
 // main css
-@import 'helpers/fontface';
-@import 'pages/homepage';
+@import 'helpers/normalize',
+        'helpers/fontface',
+        'helpers/variables',
+        'pages/homepage';
 
 
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Gotham-Book';
+    @include font-size(14);
+    background-color: #f9f9f9;
+    color: $dark-grey;
+}
+
+footer {
+
+}

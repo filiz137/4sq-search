@@ -1,1 +1,33 @@
-// 
+//mixin
+
+$rem-baseline: 16;
+
+html {
+  font-size: $rem-baseline + px;
+}
+
+@mixin font-size($size: $rem-baseline, $line: $size * 1.6) {
+	font-size: $size + px;
+  font-size: ($size / $rem-baseline) + rem;
+  line-height: ($line) + px;
+  line-height: ($line / $rem-baseline) + rem;
+} 
+
+@mixin textcut {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// colors
+$white: #ffffff;
+$light-grsy: #e3e3e3;
+$grey: #9b9b9b;
+$dark-grey: #4a4a4a;
+$light-periwinkle: #c4c0ff;
+$dark-periwinkle: #9b9b9b;
+$soft-blue: #776cee;
+$grapefruit: #ff5f5f;
+
+
+//variables 

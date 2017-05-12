@@ -2,27 +2,27 @@
 
 @font-face {
 	font-family: 'Gotham-ExtraLight';
-	src: url('fonts/Gotham-ExtraLight.woff2') format('woff2'),
-		url('fonts/Gotham-ExtraLight.woff') format('woff'),
-		url('fonts/Gotham-ExtraLight.ttf') format('truetype');
+	src: url('../font/Gotham-ExtraLight.woff2') format('woff2'),
+		url('../font/Gotham-ExtraLight.woff') format('woff'),
+		url('../font/Gotham-ExtraLight.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Gotham-Medium';
-	src: url('fonts/Gotham-Medium.woff2') format('woff2'),
-		url('fonts/Gotham-Medium.woff') format('woff'),
-		url('fonts/Gotham-Medium.ttf') format('truetype');
+	src: url('../font/Gotham-Medium.woff2') format('woff2'),
+		url('../font/Gotham-Medium.woff') format('woff'),
+		url('../font/Gotham-Medium.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
     font-family: 'Gotham-Book';
-	src: url('fonts/Gotham-Book.woff2') format('woff2'),
-		url('fonts/Gotham-Book.woff') format('woff'),
-		url('fonts/Gotham-Book.ttf') format('truetype');
+	src: url('../font/Gotham-Book.woff2') format('woff2'),
+		url('../font/Gotham-Book.woff') format('woff'),
+		url('../font/Gotham-Book.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
