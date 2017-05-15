@@ -9,23 +9,37 @@
     padding-bottom: 40px;
 
     .toggle & {
-        height: 150px;
+        height: auto;
+        padding: 10px;
         flex-direction: row;
-        justify-content: center;
+        align-items: center;
+        justify-content: flex-start;
         &-title,
         &-txt {
             display: none;
         }
         &-logo {
-            width: 252px;
-            height: 124px;
+            // width: 50px;
+            // height: 50px;
             align-items: flex-start;
-            &:before {
-                height: 252px;
-            }
+            flex-grow: 1;
+            
             &__color {
                 fill: $header-logo-detail;
             }
+            @include respond-to('mobile') {
+                width: 252px;
+                height: 124px;
+                 flex-grow: 0;
+                &:before {
+                    height: 252px;
+                }
+            }
+        }
+        @include respond-to('mobile') {
+            height: 150px;
+            padding-bottom: 0;
+            justify-content: center;
         }
     }
 

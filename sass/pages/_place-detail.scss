@@ -5,31 +5,43 @@
         background-position: 50% 50%;
         background-size: cover;
         height: 600px;
+        width: 100%;
+        overflow: hidden;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: stretch;
         color: $detail-header-txt;
         position: relative;
+        @include respond-to('mobile') {
+            height: 600px
+        }
         &-logo {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             align-self: center;
-            width: 454px;
-            height: 228px;
+            width: 100%;
+            height: auto;
             flex-grow: 1;
             z-index: 2;
+            @include respond-to('mobile') {
+                width: 454px;
+                height: 228px;
+            }
             &:before {
+                display: none;
+                @include respond-to('mobile') {
                 @include pseudo();
-                top: -227px;
-                width: 100%;
-                height: 454px;
-                border-width: 0 3.5px 3.5px 0;
-                border-color: $header-logo-border;
-                border-style: solid;
-                transform: rotate(45deg);
+                    top: -227px;
+                    width: 100%;
+                    height: 454px;
+                    border-width: 0 3.5px 3.5px 0;
+                    border-color: $header-logo-border;
+                    border-style: solid;
+                    transform: rotate(45deg);
+                }
             }
             .logo {
                 fill: $header-logo-main;
@@ -63,12 +75,16 @@
             justify-content: center;
             align-items: center;
             height: 115px;
+            padding: 0 0 0 10px;
             background-image: $detail-place-info-bg;
             font-family: 'Gotham';
             font-weight: 500;
             @include font-size(12);
             position: relative;
             z-index: 2;
+            @include respond-to('mobile') {
+                padding: 0;
+            }
             &__content {
                 width: 930px;
                 display: flex;
@@ -133,22 +149,31 @@
         &__right {
         }
     }
-    &-gallery {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 600px;
+}
+
+ .gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    @include respond-to('mobile') {
+        width: 600px; 
+        justify-content: flex-start;
     }
     &-img {
         width: 290px;
         height: 290px;
-        margin-right: 20px;
         margin-bottom: 20px;
         background-position: 0 0;
         background-repeat: no-repeat;
         background-size: cover;
-        &:nth-child(2n+2) {
-            margin-right: 0;
+       
+        @include respond-to('mobile') {
+            margin-right: 20px;
+            &:nth-child(2n+2) {
+                margin-right: 0;
+            }
         }
         &-user {
             display: none;
@@ -175,22 +200,25 @@
             display: flex;
         }
     }
-    .tips {
-        margin-top: -70px;
-        position: relative;
-        z-index: 3;
-    }
 }
+    
 
 .tips {
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: center;
     width: 290px;
-    margin-left: 40px;
     padding-top: 40px;
     background-color: $aside-bg;
     box-shadow: 0 0 34px 0 rgba(115, 95, 255, 0.32);
+    @include respond-to('mobile') {
+        margin-left: 40px;
+        margin-top: -70px;
+        position: relative;
+        z-index: 3;
+        align-self: flex-start;
+    }
     &-title {
         font-family: 'Gotham';
         font-weight: 500;
