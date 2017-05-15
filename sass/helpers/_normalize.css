@@ -425,3 +425,28 @@ template {
 [hidden] {
   display: none;
 }
+
+/* Custom
+   ========================================================================== */
+
+input,
+label,
+button {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+	background: none;
+	line-height: 1;
+}
+input:focus,
+button:focus {
+	outline: 0;
+}
+ol, ul {
+	list-style: none;
+  margin: 0;
+  padding: 0;
+}
