@@ -33,6 +33,9 @@ var detail = new Vue({
             bestPhoto: {
                 prefix: '',
                 suffix: ''
+            },
+            price: {
+                tier: null
             }
         },
         photos: [],
@@ -41,9 +44,12 @@ var detail = new Vue({
     methods: {
         placeDetail: function() {
             var id = getParameterByName('id');
-            var url = 'https://api.foursquare.com/v2/venues/' + id + '?oauth_token=X2RT1MU3N1LID51FUNE1N3AOOWKB5IRDZY5VZQTE4BOJKLWN&v=20170514';
-            var tipsUrl = 'https://api.foursquare.com/v2/venues/' + id + '/tips?sort=recent&oauth_token=X2RT1MU3N1LID51FUNE1N3AOOWKB5IRDZY5VZQTE4BOJKLWN&v=20170514';
-            var photosUrl = 'https://api.foursquare.com/v2/venues/' + id + '/photos?oauth_token=X2RT1MU3N1LID51FUNE1N3AOOWKB5IRDZY5VZQTE4BOJKLWN&v=20170514'
+
+            var url = this.foursquareAPI + 'venues/' + id + '?client_id=' + this.clientID + '&client_secret=' + this.clientSecret + '&v=' + this.apiVersion;
+
+            var tipsUrl = this.foursquareAPI + 'venues/' + id  + '/tips?client_id=' + this.clientID + '&client_secret=' + this.clientSecret + '&v=' + this.apiVersion + '&sort=recent';
+            
+            var photosUrl = this.foursquareAPI + 'venues/' + id  + '/photos?client_id=' + this.clientID + '&client_secret=' + this.clientSecret + '&v=' + this.apiVersion;
 
             this.$http.get(url).then(result => {    
                 this.venue = result.body.response.venue;

@@ -6,6 +6,7 @@
     flex-grow: 1;
     background: url(/assets/img/header-bg.jpg) center center no-repeat;
     background-size: cover;
+    padding-bottom: 40px;
 
     .toggle & {
         height: 150px;
@@ -22,7 +23,7 @@
             &:before {
                 height: 252px;
             }
-            .logo {
+            &__color {
                 fill: $header-logo-detail;
             }
         }
@@ -33,59 +34,87 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 454px;
-        height: 228px;
+        width: auto;
+        height: auto;
         // flex-grow: 1;
-        &:before {
-            @include pseudo();
-            bottom: 80px;
-            width: 100%;
-            height: 454px;
-            border-width: 0 3.5px 3.5px 0;
-            border-color: $header-logo-border;
-            border-style: solid;
-            transform: rotate(45deg);
+        @include respond-to('mobile') {
+            width: 454px;
+            height: 228px;
         }
-        .logo {
+        &:before {
+            display: none;
+            @include respond-to('mobile') {
+                @include pseudo();
+                bottom: 80px;
+                width: 100%;
+                height: 454px;
+                border-width: 0 3.5px 3.5px 0;
+                border-color: $header-logo-border;
+                border-style: solid;
+                transform: rotate(45deg);
+            }
+        }
+         &__color {
             fill: $header-logo-main;
         }
     }
     &-title {
         font-family: 'Gotham Extra';
         font-weight: 200;
-        @include font-size(55);
-        color: $header-title;        
+        @include font-size(35);
+        margin: 0 20px;
+        text-align: center;
+        color: $header-title;
+        @include respond-to('mobile') {
+            @include font-size(55);
+        }        
     }
     &-txt {
         font-family: 'Gotham Book';
         text-align: center;
-        @include font-size(16);
+        @include font-size(15);
         color: $header-txt;
+        @include respond-to('mobile') {
+            @include font-size(16);
+        } 
     }
     &-search {
         form {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+             @include respond-to('mobile') {
+                flex-direction: row;
+            }
         }
         &__keyword {
-            width: 285px;
-            margin-right: 10px;
+            width: 100%;
+            @include respond-to('mobile') {
+                width: 285px;
+                margin-right: 10px;
+            }
         }
         &__city {
-            width: 156px;
-            margin-right: 10px;
+            width: 100%;
+            @include respond-to('mobile') {
+                width: 156px;
+                margin-right: 10px;
+            }
         }
         &__btn {
             display: flex;
             flex-grow: 0;
             align-items: center;
             justify-content: center;
+            align-self: flex-end;
             width: 77px;
             height: 45px;
             border-radius: 4px;
             background-color: $grapefruit;
             box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
             cursor: pointer;
+            @include respond-to('mobile') {
+                align-self: center;
+            }
         }
     }
 }
@@ -94,6 +123,7 @@
     &-input {
         height: 45px;
         padding: 0 20px;
+        margin-bottom: 10px;
         border-radius: 4px;
         background-color: $input-bg;
         box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
@@ -101,6 +131,9 @@
         font-weight: 500;
         color: $input-txt;
         @include font-size(14);
+        @include respond-to('mobile') {
+            margin-bottom: 0;
+        }
     }
 }
 

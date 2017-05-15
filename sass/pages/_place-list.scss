@@ -27,6 +27,7 @@
             height: 100%;
             background-color: $place-item-bg;
             opacity: .5;
+            z-index: 0;
         }
         &:nth-child(2n+2) {
             margin-right: 0;
@@ -39,6 +40,7 @@
             font-weight: normal;
             @include font-size(25,35);
             color: $place-name-txt;
+            z-index: 2;
             &:after {
                 @include pseudo();
                 width: 48px;
@@ -53,6 +55,8 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
         &__checkin {
             font-family: 'Gotham';

@@ -40,11 +40,14 @@ main {
 	flex-grow: 1;
 	align-items: stretch;
 	justify-content: flex-start;
-	height: 100vh;
+	height: auto;
 
     &.toggle,
     &.detail-page {
         height: auto;
+    }
+    @include respond-to('mobile') {
+        height: 100vh;
     }
 }
 
@@ -60,5 +63,43 @@ main {
 
     &.detail {
         margin-top: 20px;
+    }
+}
+
+.err-msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Gotham Book';
+    font-weight: normal;
+    @include font-size(25,35);
+    color: $err-msg-txt;
+}
+
+.price {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &-1 {
+        width: 15px;
+        height: 3px;
+        background-color: $price-1;
+    }
+    &-2 {
+        width: 15px;
+        height: 3px;
+        background-color: $price-2;
+    }
+    &-3 {
+        width: 15px;
+        height: 3px;
+        background-color: $price-3;
+    }
+    &-4 {
+        width: 15px;
+        height: 3px;
+        background-color: $price-4;
     }
 }
