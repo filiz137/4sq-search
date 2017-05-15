@@ -1,0 +1,250 @@
+.detail {
+    &-header {
+        background-color: $detail-header-bg;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: stretch;
+        color: $detail-header-txt;
+        &-logo {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            width: 454px;
+            height: 228px;
+            flex-grow: 1;
+            &:before {
+                @include pseudo();
+                top: -227px;
+                width: 100%;
+                height: 454px;
+                border-width: 0 3.5px 3.5px 0;
+                border-color: $header-logo-border;
+                border-style: solid;
+                transform: rotate(45deg);
+            }
+            .logo {
+                fill: $header-logo-main;
+            }
+        }
+    }
+     &-place {
+         &-name {
+            width: 930px;
+            font-family: 'Gotham Extra';
+            font-weight: 500;
+            @include font-size(64);
+            margin: 0 auto;
+            padding: 0;
+        }
+        &-info {    
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 115px;
+            background-image: $detail-place-info-bg;
+            font-family: 'Gotham';
+            font-weight: 500;
+            @include font-size(12);
+            &__content {
+                width: 930px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            &__address {
+                display: flex;
+                flex-grow: 1;
+                width: 100%;
+            }
+            &__phone {
+                display: flex;
+                flex-grow: 1;
+                width: 100%;
+            }
+            &__checkin {
+                display: flex;
+            }
+            &__tag {
+                display: flex;
+            }
+            &__rating {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 93px;
+                height: 93px;
+                background-color: $detail-place-info-rating-bg;
+                -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                margin-top: -65px;
+                font-family: 'Gotham Book';
+                @include font-size(18);
+            }
+        }
+        &__left{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            flex-grow: 1;
+        }
+        &__right {
+        }
+    }
+    &-gallery {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 600px;
+    }
+    &-img {
+        width: 290px;
+        height: 290px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &:nth-child(2n+2) {
+            margin-right: 0;
+        }
+        &-user {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: $detail-img-user-bg;
+            &__photo {
+                width: 58px;
+                height: 58px;
+                -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+
+            }
+            &__name {
+                font-family: 'Gotham';
+                font-weight: 500;
+                @include font-size(14);
+                color: $detail-img-user-name;
+            }
+        }
+        &:hover &-user {
+            display: flex;
+        }
+    }
+    .tips {
+        margin-top: -70px;
+    }
+}
+
+.tips {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 290px;
+    margin-left: 40px;
+    padding-top: 40px;
+    background-color: $aside-bg;
+    box-shadow: 0 0 34px 0 rgba(115, 95, 255, 0.32);
+    &-title {
+        font-family: 'Gotham';
+        font-weight: 500;
+        @include font-size(16);
+        color: $recent-title;
+        position: relative;
+        margin: 0 0 25px 0;
+        padding: 0;
+        &:after {
+            @include pseudo();
+            width: 70px;
+            height: 2px;
+            bottom: -25px;
+            margin-left: 50%;
+            left: -35px;
+            background-color: $place-name-border;
+        }
+    }
+    &-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+        margin-top: 15px;
+        padding: 0 15px;
+        &-item {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-grow: 1;
+            height: 100px;
+            padding: 10px 0;
+            @include font-size(14);
+            color: $recent-list-txt;
+            border-style: solid;
+            border-width: 0 0 1px 0;
+            border-color: $recent-list-border;
+            &__left {
+                width: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            &-photo {
+                &__mask {
+                    width: 58px;
+                    height: 58px;
+                    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                }
+            }
+            &__right {
+                width: calc(100% - 80px);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+            }
+            &__name {
+                display: flex;
+                align-items: flex-end;
+                // height: 40px;
+                // margin-bottom: 10px;
+                font-family: 'Gotham';
+                font-weight: 500;
+                @include font-size(14);
+            }
+            &__txt {
+                font-family: 'Gotham Book';
+                line-height: normal;
+                max-width: 100%;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+    &-all {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        font-family: 'Gotham';
+        font-weight: 500;
+        @include font-size(11);
+        color: $tips-more-link;
+        text-decoration: underline;
+    }
+}

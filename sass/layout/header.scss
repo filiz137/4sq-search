@@ -1,5 +1,132 @@
-header {
+.header {
     display: flex;
-    flex-flow: row nowrap;
-    order: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+    background: url(/assets/img/header-bg.jpg) center center no-repeat;
+    background-size: cover;
+
+    .toggle & {
+        height: 150px;
+        flex-direction: row;
+        justify-content: center;
+        &-title,
+        &-txt {
+            display: none;
+        }
+        &-logo {
+            width: 252px;
+            height: 124px;
+            align-items: flex-start;
+            &:before {
+                height: 252px;
+            }
+            .logo {
+                fill: $header-logo-detail;
+            }
+        }
+    }
+
+    &-logo {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 454px;
+        height: 228px;
+        // flex-grow: 1;
+        &:before {
+            @include pseudo();
+            bottom: 80px;
+            width: 100%;
+            height: 454px;
+            border-width: 0 3.5px 3.5px 0;
+            border-color: $header-logo-border;
+            border-style: solid;
+            transform: rotate(45deg);
+        }
+        .logo {
+            fill: $header-logo-main;
+        }
+    }
+    &-title {
+        font-family: 'Gotham Extra';
+        font-weight: 200;
+        @include font-size(55);
+        color: $header-title;        
+    }
+    &-txt {
+        font-family: 'Gotham Book';
+        text-align: center;
+        @include font-size(16);
+        color: $header-txt;
+    }
+    &-search {
+        form {
+            display: flex;
+            flex-direction: row;
+        }
+        &__keyword {
+            width: 285px;
+            margin-right: 10px;
+        }
+        &__city {
+            width: 156px;
+            margin-right: 10px;
+        }
+        &__btn {
+            display: flex;
+            flex-grow: 0;
+            align-items: center;
+            justify-content: center;
+            width: 77px;
+            height: 45px;
+            border-radius: 4px;
+            background-color: $grapefruit;
+            box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
+            cursor: pointer;
+        }
+    }
 }
+
+.form {
+    &-input {
+        height: 45px;
+        padding: 0 20px;
+        border-radius: 4px;
+        background-color: $input-bg;
+        box-shadow: 0 12px 21px 0 rgba(0, 0, 0, 0.24);
+        font-family: 'Gotham';
+        font-weight: 500;
+        color: $input-txt;
+        @include font-size(14);
+    }
+}
+
+::-webkit-input-placeholder {
+  color: $placeholder;
+}
+::-moz-placeholder { 
+  color: $placeholder;
+}
+:-ms-input-placeholder { 
+  color: $placeholder;
+}
+:-moz-placeholder { 
+  color: $placeholder;
+}
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+input:focus::-moz-placehold {
+    color: transparent;
+}
+input:focus::-ms-input-placeholder  {
+    color: transparent;
+}
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+

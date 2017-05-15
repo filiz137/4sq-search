@@ -1,0 +1,156 @@
+.place {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 600px;
+
+    &-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        width: 290px;
+        height: 290px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        background-color: $place-item-bg;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        &:before {
+            @include pseudo();
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $place-item-bg;
+            opacity: .5;
+        }
+        &:nth-child(2n+2) {
+            margin-right: 0;
+        }
+        &__name {
+            position: relative;
+            margin: 0 0 15px 0;
+            padding: 0 20px 0 0;
+            font-family: 'Gotham Book';
+            font-weight: normal;
+            @include font-size(25,35);
+            color: $place-name-txt;
+            &:after {
+                @include pseudo();
+                width: 48px;
+                height: 2px;
+                bottom: 0;
+                background-color: $place-name-border;
+            }
+        }
+        &-info {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__checkin {
+            font-family: 'Gotham';
+            font-weight: 500;
+            @include font-size(12);
+            color: $place-checkin;
+
+        }
+        &__tag {
+
+        }
+        &__rating {
+          position: relative;
+          width: 91px;
+          height: 46px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+          z-index: 1;
+          font-family: 'Gotham';
+          font-weight: 500;
+          @include font-size(15);
+          color: $place-rating-txt;
+          &:before {
+            @include pseudo();
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 45.5px 46px 45.5px;
+            border-color: transparent transparent $place-rating-bg transparent;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+          }
+        }
+        // &:hover:after {
+        //     @include pseudo();
+        //     width: 100%;
+        //     height: 100%;
+        //     top: 0;
+        //     left: 0;
+        //     background-color: $detail-img-user-bg;
+        // }
+
+    }
+}
+
+.recent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 290px;
+    margin-left: 40px;
+    padding-top: 40px;
+    background-color: $aside-bg;
+    box-shadow: 0 0 34px 0 rgba(255, 95, 95, 0.32);
+    &-title {
+        font-family: 'Gotham';
+        font-weight: 500;
+        @include font-size(16);
+        color: $recent-title;
+        position: relative;
+        margin: 0 0 25px 0;
+        padding: 0;
+        &:after {
+            @include pseudo();
+            width: 70px;
+            height: 2px;
+            bottom: -25px;
+            margin-left: 50%;
+            left: -35px;
+            background-color: $place-name-border;
+        }
+    }
+    &-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+        margin-top: 15px;
+        padding: 0 15px;
+        &__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            height: 50px;
+            font-family: 'Gotham';
+            font-weight: 500;
+            @include font-size(14);
+            color: $recent-list-txt;
+            border-style: solid;
+            border-width: 0 0 1px 0;
+            border-color: $recent-list-border;
+            &:last-child {
+                border-bottom: none 0;
+            }
+        }
+    }
+}
