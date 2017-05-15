@@ -7,6 +7,7 @@ var search = new Vue({
         apiVersion: '20170514',
         venues: [],
         toggle: false,
+        errMsg: false,
     },
     methods: {
         searchPlace: function(){
@@ -33,11 +34,19 @@ var search = new Vue({
                         this.displayrecent = this.recent.slice().reverse();
                     }
                     else {
+                        this.msg = inputKeyword.value;
+                        this.errMsg = true;
+                        inputKeyword.value = '';
+                        inputCity.value = '';
                         console.log('empty');
                     }                    
 
                 }, err => {
-                    console.log('error!');
+                    this.msg = inputKeyword.value;
+                    this.errMsg = true;
+                    inputKeyword.value = '';
+                    inputCity.value = '';
+                    console.log('error');
                 });
             }
         }
