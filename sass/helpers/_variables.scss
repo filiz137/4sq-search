@@ -66,7 +66,7 @@ $light-lavender: #c9c5ff;
 $perrywinkle: #a59fee;
 $periwinkle: #8b81ff;
 $purpley: #685dea;
-
+$light-peach: #ffc5c5;
 
 
 $header-title: $white;
@@ -74,6 +74,7 @@ $header-txt: $white;
 $header-logo-border: $white;
 $header-logo-main: $purple;
 $header-logo-detail: $white;
+$header-category-logo: $light-peach;
 $input-bg: $white;
 $input-txt: $dark-grey;
 $placeholder: $grey;
@@ -96,6 +97,7 @@ $detail-place-info-bg: linear-gradient(95deg, rgba(30, 13, 180, .8), rgba(228, 7
 $detail-header-txt: $white;
 $detail-place-info-rating-bg: $purple;
 $err-msg-txt: $white;
+$err-msg-txt-dark: $dark-grey;
 
 $price-1: $light-lavender;
 $price-2: $perrywinkle;

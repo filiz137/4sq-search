@@ -27,8 +27,15 @@ var detail = new Vue({
             contact: {
                 phone: null
             },
-            categories: {
-                name: null
+            categories: [{
+                name: null,
+                icon: {
+                    prefix: null,
+                    suffix: null,
+                }
+            }],
+            photos: {
+                count: 0,
             },
             bestPhoto: {
                 prefix: '',

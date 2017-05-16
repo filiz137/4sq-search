@@ -5,7 +5,6 @@
 @import 'layout/header';
 @import 'layout/aside';
 @import 'layout/footer';
-@import 'pages/homepage';
 @import 'pages/place-list';
 @import 'pages/place-detail';
 
@@ -41,71 +40,92 @@ main {
 	align-items: stretch;
 	justify-content: flex-start;
 	height: auto;
+    min-height: 100vh;
 
     &.toggle,
     &.detail-page {
         height: auto;
+        .err-msg {
+            width: calc(100% - 40px);
+            margin: 20px;
+            padding: 8px 12px;
+            border: 1px solid $dark-grey;
+            color: $err-msg-txt-dark;            
+            @include font-size(14);
+        }
     }
-    @include respond-to('mobile') {
-        height: 100vh;
+    // @include respond-to('mobile') {
+    //     height: 100vh;
+    // }
+
+    .err-msg {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @include respond-to('mobile') {
+            align-items: flex-start;
+        }
+        padding: 18px 12px;
+        font-family: 'Gotham Book';
+        font-weight: normal;
+        @include font-size(18);
+        color: $err-msg-txt;
     }
 }
 
 .content {
     display: flex;
     flex-grow: 1;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
     align-self: center;
-    max-width: 100%;
+    width: 100%;
     margin: 40px auto 60px;
     @include respond-to('mobile') {
-        max-width: 1280px;
+        max-width: 930px;
     }
 
     &.detail {
+        flex-direction: column;
         margin-top: 20px;
         @include respond-to('mobile') {
-            flex-direction: row; 
+            flex-direction: row;
         }
     }
 }
 
-.err-msg {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    font-family: 'Gotham Book';
-    font-weight: normal;
-    @include font-size(25,35);
-    color: $err-msg-txt;
-}
-
 .price {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
     align-items: center;
-    &-1 {
+    width: 60px;
+    height: 3px;
+    background-color: rgba(#000000, .43);
+    span {
+        display: none;
         width: 15px;
         height: 3px;
-        background-color: $price-1;
-    }
-    &-2 {
-        width: 15px;
-        height: 3px;
-        background-color: $price-2;
-    }
-    &-3 {
-        width: 15px;
-        height: 3px;
-        background-color: $price-3;
-    }
-    &-4 {
-        width: 15px;
-        height: 3px;
-        background-color: $price-4;
+        &:nth-child(4) {
+            background-color: $price-1;
+        }
+        &:nth-child(3) {
+            background-color: $price-2;
+        }
+        &:nth-child(2) {
+            background-color: $price-3;
+        }
+        &:nth-child(1) {
+            background-color: $price-4;
+        }
+        &.active {
+            display: flex;
+            & ~ span {
+                display: flex;
+            }
+        }
     }
 }

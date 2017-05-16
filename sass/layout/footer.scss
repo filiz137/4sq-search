@@ -15,6 +15,9 @@
             font-family: 'Gotham';
             font-weight: 500;
             @include font-size(12);
+            &:hover {
+                color: darken($footer-link,20);
+            }
         }
     }
 }

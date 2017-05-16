@@ -10,12 +10,21 @@ var search = new Vue({
         errMsg: false,
     },
     methods: {
-        searchPlace: function(){
+        errorMessages: function(val) {
+            this.msg = val;
+            this.errMsg = true;
+            document.getElementById('keyword').value = '';
+            document.getElementById('city').value = '';
+            console.log('Error');
+        },
+        searchPlace: function() {
             var inputKeyword = document.getElementById('keyword');
             var inputCity = document.getElementById('city');
             this.recent = JSON.parse(localStorage.getItem('recent')) || [];
 
             if (inputKeyword.value !== '' && inputCity.value !== '') {
+                this.errMsg = false;
+                this.venues = [];
                 
                 var url = this.foursquareAPI + 'venues/explore?client_id=' + this.clientID + '&client_secret=' + this.clientSecret + '&v=' + this.apiVersion + '&query=' + inputKeyword.value + '&near=' + inputCity.value + '&limit=10&venuePhotos=1';
 
@@ -32,23 +41,18 @@ var search = new Vue({
                         })
                         localStorage.setItem('recent',JSON.stringify(this.recent));
                         this.displayrecent = this.recent.slice().reverse();
-                    }
-                    else {
-                        this.msg = inputKeyword.value;
-                        this.errMsg = true;
-                        inputKeyword.value = '';
-                        inputCity.value = '';
-                        console.log('empty');
-                    }                    
+                    } else this.errorMessages(inputKeyword.value);
 
                 }, err => {
-                    this.msg = inputKeyword.value;
-                    this.errMsg = true;
-                    inputKeyword.value = '';
-                    inputCity.value = '';
-                    console.log('error');
+                    this.errorMessages(inputKeyword.value);
                 });
             }
+        },
+        photoCheck: function(val) {
+            return '/assets/img/header-bg.jpg';
+            // if (val.venue.featuredPhotos.items[0].suffix) {
+            //     return val.venue.featuredPhotos.items[0].prefix + 'width290' + val.venue.featuredPhotos.items[0].suffix;
+            // } else return '/assets/img/header-bg.jpg';
         }
     },
     filters: {
