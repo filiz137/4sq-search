@@ -78,7 +78,7 @@
         </header>
 
         <div class="content detail">
-            <div class="err-msg" v-if="!photos.length">Sorry! No results</div>
+            <div class="err-msg" v-if="!photos.length">Sorry! No photo</div>
             <div class="gallery">
                 <div class="gallery-img" v-bind:style="'background-image: url(' + item.prefix + 'width290' + item.suffix + ')'" v-for="item in filterLimit(photos,12)">
                     <div class="gallery-img-user">
