@@ -8,6 +8,23 @@
 @import 'pages/place-list';
 @import 'pages/place-detail';
 
+.header {
+    @include respond-to('mobile') {
+        transition: min-height .4s ease;
+        min-height: 400px;
+        &-title,
+        &-txt {
+        transition: all .5s ease;
+        }
+    }
+    .toggle & {
+        height: auto;
+        @include respond-to('mobile') {
+            min-height: 150px;
+        }
+    }
+}
+
 html,
 body {
     margin: 0;
@@ -80,9 +97,6 @@ main {
         }
     }
 }
-
-
-
 
 .content {
     display: flex;
