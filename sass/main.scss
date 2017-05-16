@@ -70,10 +70,19 @@ main {
         padding: 18px 12px;
         font-family: 'Gotham Book';
         font-weight: normal;
-        @include font-size(18);
+        @include font-size(24);
         color: $err-msg-txt;
     }
+    .tips {
+        .err-msg {
+            border: none;
+            @include font-size(16);
+        }
+    }
 }
+
+
+
 
 .content {
     display: flex;
@@ -86,6 +95,12 @@ main {
     margin: 40px auto 60px;
     @include respond-to('mobile') {
         max-width: 930px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+      @include respond-to('tablet') {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     &.detail {

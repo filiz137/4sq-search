@@ -94,6 +94,7 @@
             
             <aside class="tips">
                 <h3 class="tips-title">TIPS</h3>
+                <div class="err-msg" v-if="!tips.length">No tips yet!</div>
                 <ul class="tips-list">
                     <li class="tips-list-item" v-for="item in filterLimit(tips,12)">
                         <div class="tips-list-item__left">
@@ -112,7 +113,7 @@
                     </li>
      
                 </ul>
-                <a href="#" class="tips-all">All Tips</a>
+                <a href="#" class="tips-all" v-if="tips.length">All Tips</a>
             </aside>
         </div>        
 

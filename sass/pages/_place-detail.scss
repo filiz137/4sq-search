@@ -72,8 +72,11 @@
             z-index: 2;
             @include respond-to('mobile') {
                 width: 930px;
-                padding: 0;
+                padding: 0 0 0 10px;
                 @include font-size(64, 80);
+            }
+            @include respond-to('desktop') {
+                padding: 0;
             }
         }
         &-info {    
@@ -90,6 +93,9 @@
             position: relative;
             z-index: 2;
             @include respond-to('mobile') {
+                padding: 0 0 0 10px;
+            }
+            @include respond-to('desktop') {
                 padding: 0;
             }
             &__content {
@@ -182,8 +188,14 @@
                 margin-right: 0;
             }
         }
+
+        @include respond-to('tablet') {
+
+        }
         &-user {
-            display: none;
+            display: flex;
+            visibility: hidden;
+            opacity: 0;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -204,7 +216,9 @@
             }
         }
         &:hover &-user {
-            display: flex;
+            visibility: visible;
+            opacity: 1;
+            transition: visibility 0s, opacity .5s linear;
         }
     }
 }

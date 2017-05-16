@@ -163,8 +163,11 @@
         &__keyword {
             width: 100%;
             @include respond-to('mobile') {
-                width: 285px;
+                width: auto;
                 margin-right: 10px;
+            }
+             @include respond-to('tablet') {
+                width: 285px;
             }
         }
         &__city {

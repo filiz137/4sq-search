@@ -19,7 +19,7 @@ gulp.task('serve', ['sass'], function() {
 gulp.task('sass', function () {
   return gulp.src("./sass/*.scss")
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-    // .pipe(cleanCSS({compatibility: 'ie9'}))
+    .pipe(cleanCSS({compatibility: 'ie9'}))
     .pipe(autoprefixer({
 			browsers: ['> 1%', 'iOS 8', 'ie 9'],
 			cascade: false

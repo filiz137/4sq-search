@@ -791,8 +791,14 @@ html {
 
 @media (min-width: 767px) {
   .header-search__keyword {
-    width: 285px;
+    width: auto;
     margin-right: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-search__keyword {
+    width: 285px;
   }
 }
 
@@ -1247,6 +1253,7 @@ input:focus::-moz-placeholder {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   flex-grow: 1;
+  padding: 0 10px;
 }
 
 @media (min-width: 767px) {
@@ -1255,6 +1262,7 @@ input:focus::-moz-placeholder {
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     flex-direction: row;
+    padding: 0;
   }
 }
 
@@ -1273,10 +1281,10 @@ input:focus::-moz-placeholder {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
   align-items: flex-start;
-  width: calc(100% - 40px);
+  width: 100%;
   min-width: 290px;
   height: 290px;
-  margin: 0 0 20px 20px;
+  margin: 0 auto 20px;
   padding-left: 20px;
   background-color: #12195f;
   background-repeat: no-repeat;
@@ -1284,7 +1292,7 @@ input:focus::-moz-placeholder {
   background-position: center center;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 992px) {
   .place-item {
     margin: 0 20px 20px 0;
     width: 290px;
@@ -1305,11 +1313,20 @@ input:focus::-moz-placeholder {
 }
 
 .place-item:hover:before {
-  opacity: .8;
+  opacity: .7;
+  transition: opacity .5s ease-in;
 }
 
-.place-item:nth-child(2n+2) {
-  margin-right: 0;
+@media (min-width: 767px) {
+  .place-item:nth-child(2n+2) {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .place-item:nth-child(2n+2) {
+    margin-right: 0;
+  }
 }
 
 .place-item__name {
@@ -1324,6 +1341,10 @@ input:focus::-moz-placeholder {
   line-height: 2.1875rem;
   color: #ffffff;
   z-index: 2;
+}
+
+.place-item__name:hover {
+  color: #776cee;
 }
 
 .place-item__name:after {
@@ -1363,6 +1384,26 @@ input:focus::-moz-placeholder {
   line-height: 19.2px;
   line-height: 1.2rem;
   color: #ffffff;
+}
+
+.place-item__tag {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.place-item__tag svg {
+  margin-right: 3px;
 }
 
 .place-item__rating {
@@ -1528,11 +1569,17 @@ input:focus::-moz-placeholder {
 @media (min-width: 767px) {
   .detail-place-name {
     width: 930px;
-    padding: 0;
+    padding: 0 0 0 10px;
     font-size: 64px;
     font-size: 4rem;
     line-height: 80px;
     line-height: 5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .detail-place-name {
+    padding: 0;
   }
 }
 
@@ -1564,6 +1611,12 @@ input:focus::-moz-placeholder {
 }
 
 @media (min-width: 767px) {
+  .detail-place-info {
+    padding: 0 0 0 10px;
+  }
+}
+
+@media (min-width: 1200px) {
   .detail-place-info {
     padding: 0;
   }
@@ -1749,7 +1802,11 @@ input:focus::-moz-placeholder {
 }
 
 .gallery-img-user {
-  display: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -1782,9 +1839,9 @@ input:focus::-moz-placeholder {
 }
 
 .gallery-img:hover .gallery-img-user {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity .5s linear;
 }
 
 html,
@@ -1868,10 +1925,10 @@ main .err-msg {
   padding: 18px 12px;
   font-family: 'Gotham Book';
   font-weight: normal;
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 28.8px;
-  line-height: 1.8rem;
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 38.4px;
+  line-height: 2.4rem;
   color: #ffffff;
 }
 
@@ -1881,6 +1938,14 @@ main .err-msg {
     -webkit-align-items: flex-start;
     align-items: flex-start;
   }
+}
+
+main .tips .err-msg {
+  border: none;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 25.6px;
+  line-height: 1.6rem;
 }
 
 .content {
@@ -1909,6 +1974,15 @@ main .err-msg {
 @media (min-width: 767px) {
   .content {
     max-width: 930px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  .content {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
