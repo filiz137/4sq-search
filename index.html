@@ -50,13 +50,17 @@
                         </svg>
                     </button>
                 </form>
-                <div class="err-msg" v-if="errMsg && !toggle">Sorry! No results for "{{ msg }}"</div>
+                <transition name="fade">
+                    <div class="err-msg" v-if="errMsg && !toggle">Sorry! No results for "{{ msg }}"</div>
+                </transition>
             </div>
             </div>
         </header>
 
         <div class="content" v-if="toggle">
-            <div class="err-msg" v-if="errMsg && toggle">Sorry! No results for "{{ msg }}"</div>            
+            <transition name="fade">
+                <div class="err-msg" v-if="errMsg && toggle">Sorry! No results for "{{ msg }}"</div>   
+            </transition>         
             <div class="place">
                 <div class="place-item" v-for="item in venues" v-bind:style="'background-image: url(' + (item.venue.photos.count > 0 ? item.venue.featuredPhotos.items[0].prefix + 'width290' + item.venue.featuredPhotos.items[0].suffix : '/assets/img/header-bg.jpg') + ')'">
                     <a class="place-item__name" v-bind:href="'/detail.html?id=' + item.venue.id">{{ item.venue.name }}</a>
