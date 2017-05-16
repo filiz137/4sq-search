@@ -49,7 +49,7 @@ var search = new Vue({
             }
         },
         photoCheck: function(val) {
-            return '/assets/img/header-bg.jpg';
+            return '/4sq-search/assets/img/header-bg.jpg';
             // if (val.venue.featuredPhotos.items[0].suffix) {
             //     return val.venue.featuredPhotos.items[0].prefix + 'width290' + val.venue.featuredPhotos.items[0].suffix;
             // } else return '/assets/img/header-bg.jpg';

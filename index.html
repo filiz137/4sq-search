@@ -8,7 +8,7 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/vue-resource@1.3.1/dist/vue-resource.min.js"></script>
     
-    <link  rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link  rel="stylesheet" type="text/css" href="/4sq-search/assets/css/main.css">
 </head>
 <body>
     <main id="main" v-bind:class="{ toggle: toggle }">
@@ -58,7 +58,7 @@
         <div class="content" v-if="toggle">
             <div class="err-msg" v-if="errMsg && toggle">Sorry! No results for "{{ msg }}"</div>            
             <div class="place">
-                <div class="place-item" v-for="item in venues" v-bind:style="'background-image: url(' + (item.venue.photos.count > 0 ? item.venue.featuredPhotos.items[0].prefix + 'width290' + item.venue.featuredPhotos.items[0].suffix : '/assets/img/header-bg.jpg') + ')'">
+                <div class="place-item" v-for="item in venues" v-bind:style="'background-image: url(' + (item.venue.photos.count > 0 ? item.venue.featuredPhotos.items[0].prefix + 'width290' + item.venue.featuredPhotos.items[0].suffix : '/4sq-search/assets/img/header-bg.jpg') + ')'">
                     <a class="place-item__name" v-bind:href="'/detail.html?id=' + item.venue.id">{{ item.venue.name }}</a>
                     <div class="place-item-info">
                         <div class="place-item__checkin">
@@ -105,6 +105,6 @@
         </footer>
     </main>
 
-    <script src="assets/js/script.js"></script>
+    <script src="/4sq-search/assets/js/script.js"></script>
 </body>
 </html>
