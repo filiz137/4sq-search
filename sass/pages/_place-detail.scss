@@ -85,7 +85,7 @@
             justify-content: center;
             align-items: center;
             height: 115px;
-            padding: 0 0 0 10px;
+            padding: 0 10px 0 10px;
             background-image: $detail-place-info-bg;
             font-family: 'Gotham';
             font-weight: 500;
@@ -93,7 +93,7 @@
             position: relative;
             z-index: 2;
             @include respond-to('mobile') {
-                padding: 0 0 0 10px;
+                padding: 0 20px;
             }
             @include respond-to('desktop') {
                 padding: 0;
@@ -165,33 +165,39 @@
 
  .gallery {
     display: flex;
-    flex-direction: row;
+    // flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     flex-grow: 1;
-    // width: 100%;
+    width: 100%;
     justify-content: center;
     @include respond-to('mobile') {
         // width: 600px; 
+        width: auto;
+        flex-direction: row;
         justify-content: flex-start;
     }
+     @include respond-to('tablet') {
+
+     }
     &-img {
-        width: 290px;
+        // width: 290px;
+        width: 100%;
         height: 290px;
         margin-bottom: 20px;
         background-position: 0 0;
         background-repeat: no-repeat;
         background-size: cover;
-       
-        @include respond-to('mobile') {
+  
+        @include respond-to('tablet') {
+            width: 290px;
             margin-right: 20px;
             &:nth-child(2n+2) {
                 margin-right: 0;
             }
         }
 
-        @include respond-to('tablet') {
-
-        }
+       
         &-user {
             display: flex;
             visibility: hidden;
