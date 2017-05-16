@@ -106,8 +106,12 @@ main {
     &.detail {
         flex-direction: column;
         margin-top: 20px;
+        padding: 0 20px;
         @include respond-to('mobile') {
             flex-direction: row;
+        }
+        @include respond-to('tablet') {
+            padding: 0;
         }
     }
 }
