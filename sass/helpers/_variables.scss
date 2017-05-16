@@ -1,0 +1,108 @@
+//mixin
+
+$rem-baseline: 16;
+
+html {
+  font-size: $rem-baseline + px;
+}
+
+@mixin font-size($size: $rem-baseline, $line: $size * 1.6) {
+	font-size: $size + px;
+  font-size: ($size / $rem-baseline) + rem;
+  line-height: ($line) + px;
+  line-height: ($line / $rem-baseline) + rem;
+}
+
+@mixin textcut {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+$breakpoints: (
+  'mobile':  767px,
+  'tablet': 992px,
+  'desktop':  1200px
+) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+ 
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// colors
+$white: #ffffff;
+$light-grey: #e3e3e3;
+$white-grey: #e4e4e4;
+$grey: #9b9b9b;
+$dark-grey: #4a4a4a;
+$light-periwinkle: #c4c0ff;
+$dark-periwinkle: #7a74d2;
+$purple: #776cee;
+$dark-indigo:#12195f;
+$grapefruit: #ff5f5f;
+$light-lavender: #c9c5ff;
+$perrywinkle: #a59fee;
+$periwinkle: #8b81ff;
+$purpley: #685dea;
+$light-peach: #ffc5c5;
+
+
+$header-title: $white;
+$header-txt: $white;
+$header-logo-border: $white;
+$header-logo-main: $purple;
+$header-logo-detail: $white;
+$header-category-logo: $light-peach;
+$input-bg: $white;
+$input-txt: $dark-grey;
+$placeholder: $grey;
+$place-item-bg: $dark-indigo;
+$place-rating-bg: $purple;
+$place-name-border: $light-periwinkle;
+$place-name-txt: $white;
+$place-name-txt-hover: $purple;
+$place-checkin: $white;
+$place-rating-txt: $white;
+$recent-title: $dark-grey;
+$recent-list-txt: $grey;
+$recent-list-border: $white-grey;
+$footer-link: $grey;
+$aside-bg: $white;
+$tips-more-link: $dark-periwinkle;
+$detail-img-user-bg: rgba($dark-indigo,0.5);
+$detail-img-user-name: $white;
+$detail-header-bg: $dark-indigo;
+$detail-place-info-bg: linear-gradient(95deg, rgba(30, 13, 180, .8), rgba(228, 71, 71, .8));
+$detail-header-txt: $white;
+$detail-place-info-rating-bg: $purple;
+$err-msg-txt: $white;
+$err-msg-txt-dark: $dark-grey;
+
+$price-1: $light-lavender;
+$price-2: $perrywinkle;
+$price-3: $periwinkle;
+$price-4: $purpley;
+
+

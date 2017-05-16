@@ -1,0 +1,168 @@
+.recent {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 0;
+    min-width: 290px;
+    margin-left: 40px;
+    padding-top: 40px;
+    background-color: $aside-bg;
+    box-shadow: 0 0 34px 0 rgba(255, 95, 95, 0.32);
+    @include respond-to('mobile') {
+        display: flex;
+    }
+    &-title {
+        font-family: 'Gotham';
+        font-weight: 500;
+        @include font-size(16);
+        color: $recent-title;
+        position: relative;
+        margin: 0 0 25px 0;
+        padding: 0;
+        &:after {
+            @include pseudo();
+            width: 70px;
+            height: 2px;
+            bottom: -25px;
+            margin-left: 50%;
+            left: -35px;
+            background-color: $place-name-border;
+        }
+    }
+    &-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+        margin-top: 15px;
+        padding: 0 15px;
+        &__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            height: 50px;
+            font-family: 'Gotham';
+            font-weight: 500;
+            @include font-size(14);
+            color: $recent-list-txt;
+            border-style: solid;
+            border-width: 0 0 1px 0;
+            border-color: $recent-list-border;
+            &:last-child {
+                border-bottom: none 0;
+            }
+        }
+    }
+}
+
+.tips {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    min-width: 290px;
+    padding-top: 40px;
+    background-color: $aside-bg;
+    box-shadow: 0 0 34px 0 rgba(115, 95, 255, 0.32);
+    @include respond-to('mobile') {
+        margin-left: 40px;
+        margin-top: -70px;
+        position: relative;
+        z-index: 3;
+        align-self: flex-start;
+    }
+    &-title {
+        font-family: 'Gotham';
+        font-weight: 500;
+        @include font-size(16);
+        color: $recent-title;
+        position: relative;
+        margin: 0 0 25px 0;
+        padding: 0;
+        &:after {
+            @include pseudo();
+            width: 70px;
+            height: 2px;
+            bottom: -25px;
+            margin-left: 50%;
+            left: -35px;
+            background-color: $place-name-border;
+        }
+    }
+    &-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+        margin-top: 15px;
+        padding: 0 15px;
+        &-item {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-grow: 1;
+            min-height: 100px;
+            padding: 10px 0;
+            @include font-size(14);
+            color: $recent-list-txt;
+            border-style: solid;
+            border-width: 0 0 1px 0;
+            border-color: $recent-list-border;
+            &__left {
+                width: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            &-photo {
+                &__mask {
+                    width: 58px;
+                    height: 58px;
+                    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                }
+            }
+            &__right {
+                width: calc(100% - 80px);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+            }
+            &__name {
+                display: flex;
+                align-items: flex-end;
+                height: 40px;
+                // margin-bottom: 10px;
+                font-family: 'Gotham';
+                font-weight: 500;
+                @include font-size(14);
+            }
+            &__txt {
+                font-family: 'Gotham Book';
+                line-height: normal;
+                padding-right: 5px; 
+                max-width: 100%;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+    &-all {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        font-family: 'Gotham';
+        font-weight: 500;
+        @include font-size(11);
+        color: $tips-more-link;
+        text-decoration: underline;
+    }
+}

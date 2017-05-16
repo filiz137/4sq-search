@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+!.gitkeep
+logs/*
+tmp
+.idea
+.log
+.filewatching
+report.md
+Gemfile.lock
+node_modules/
+.sass-cache

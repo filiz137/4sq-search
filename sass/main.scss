@@ -1,0 +1,146 @@
+// main css
+@import 'helpers/normalize';
+@import 'helpers/fontface';
+@import 'helpers/variables';
+@import 'layout/header';
+@import 'layout/aside';
+@import 'layout/footer';
+@import 'pages/place-list';
+@import 'pages/place-detail';
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    color: $dark-grey;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: $grey;
+}
+a:hover {
+    color: $grey;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	align-items: stretch;
+	justify-content: flex-start;
+	height: auto;
+    min-height: 100vh;
+
+    &.toggle,
+    &.detail-page {
+        height: auto;
+        .err-msg {
+            width: calc(100% - 40px);
+            margin: 20px;
+            padding: 8px 12px;
+            border: 1px solid $dark-grey;
+            color: $err-msg-txt-dark;            
+            @include font-size(14);
+        }
+    }
+    // @include respond-to('mobile') {
+    //     height: 100vh;
+    // }
+
+    .err-msg {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @include respond-to('mobile') {
+            align-items: flex-start;
+        }
+        padding: 18px 12px;
+        font-family: 'Gotham Book';
+        font-weight: normal;
+        @include font-size(24);
+        color: $err-msg-txt;
+    }
+    .tips {
+        .err-msg {
+            border: none;
+            @include font-size(16);
+        }
+    }
+}
+
+
+
+
+.content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: center;
+    width: 100%;
+    margin: 40px auto 60px;
+    @include respond-to('mobile') {
+        max-width: 930px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+      @include respond-to('tablet') {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &.detail {
+        flex-direction: column;
+        margin-top: 20px;
+        @include respond-to('mobile') {
+            flex-direction: row;
+        }
+    }
+}
+
+.price {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    width: 60px;
+    height: 3px;
+    background-color: rgba(#000000, .43);
+    span {
+        display: none;
+        width: 15px;
+        height: 3px;
+        &:nth-child(4) {
+            background-color: $price-1;
+        }
+        &:nth-child(3) {
+            background-color: $price-2;
+        }
+        &:nth-child(2) {
+            background-color: $price-3;
+        }
+        &:nth-child(1) {
+            background-color: $price-4;
+        }
+        &.active {
+            display: flex;
+            & ~ span {
+                display: flex;
+            }
+        }
+    }
+}

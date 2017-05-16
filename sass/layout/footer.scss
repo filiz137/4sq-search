@@ -1,0 +1,23 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 0;
+    background-color: #f0f0f0;
+    height: 100px;
+    &-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 180px;
+        &__link {
+            color: $footer-link;
+            font-family: 'Gotham';
+            font-weight: 500;
+            @include font-size(12);
+            &:hover {
+                color: darken($footer-link,20);
+            }
+        }
+    }
+}
