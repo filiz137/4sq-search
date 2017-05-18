@@ -1,3 +1,5 @@
+'use strict';
+
 var search = new Vue({
     el: '#main',
     data: {
@@ -15,7 +17,7 @@ var search = new Vue({
             this.errMsg = true;
             document.getElementById('keyword').value = '';
             document.getElementById('city').value = '';
-            console.log('Error');
+            // console.log('Error');
         },
         searchPlace: function() {
             var inputKeyword = document.getElementById('keyword');
@@ -28,7 +30,7 @@ var search = new Vue({
                 
                 var url = this.foursquareAPI + 'venues/explore?client_id=' + this.clientID + '&client_secret=' + this.clientSecret + '&v=' + this.apiVersion + '&query=' + inputKeyword.value + '&near=' + inputCity.value + '&limit=10&venuePhotos=1';
 
-                this.$http.get(url).then(result => {
+                this.$http.get(url).then(function (result) {
                     if (result.body.response.groups[0].items.length > 0) {
                         this.toggle = true;
                         this.venues = result.body.response.groups[0].items;
@@ -38,13 +40,12 @@ var search = new Vue({
                         this.recent.push({
                             keyword: inputKeyword.value,
                             city: inputCity.value
-                        })
-                        console.log(this.recent);
+                        });
                         localStorage.setItem('recent',JSON.stringify(this.recent));
                         this.displayrecent = this.recent.slice().reverse();
                     } else this.errorMessages(inputKeyword.value);
 
-                }, err => {
+                }, function (err) {
                     this.errorMessages(inputKeyword.value);
                 });
             }
