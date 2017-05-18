@@ -39,6 +39,7 @@ var search = new Vue({
                             keyword: inputKeyword.value,
                             city: inputCity.value
                         })
+                        console.log(this.recent);
                         localStorage.setItem('recent',JSON.stringify(this.recent));
                         this.displayrecent = this.recent.slice().reverse();
                     } else this.errorMessages(inputKeyword.value);

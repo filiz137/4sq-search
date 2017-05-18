@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>4sq Search</title>
     <script src="https://unpkg.com/vue"></script>
@@ -31,8 +31,8 @@
             <p class="header-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <div class="header-search">
                 <form id="search" class="form" autocomplete="off" v-on:submit.prevent="searchPlace()">
-                    <input id="keyword" class="form-input header-search__keyword" type="text" placeholder="I’m looking for" v-on:keypress.enter="searchPlace()"  required>
-                    <input id="city" class="form-input header-search__city" type="text" placeholder="Istanbul" v-on:keypress.enter="searchPlace()" required>
+                    <input id="keyword" class="form-input header-search__keyword" type="text" placeholder="I’m looking for" required>
+                    <input id="city" class="form-input header-search__city" type="text" placeholder="Istanbul" required>
                     <button class="form-btn header-search__btn" type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 63 63">
                             <defs>
