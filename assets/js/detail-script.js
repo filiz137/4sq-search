@@ -1,3 +1,4 @@
+"use strict";
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -58,21 +59,21 @@ var detail = new Vue({
             
             var photosUrl = this.foursquareAPI + 'venues/' + id  + '/photos?client_id=' + this.clientID + '&client_secret=' + this.clientSecret + '&v=' + this.apiVersion;
 
-            this.$http.get(url).then(result => {    
+            this.$http.get(url).then(function (result) {    
                 this.venue = result.body.response.venue;
-            }, err => {
+            }, function (err) {
                 console.log('error!')
             });
 
-            this.$http.get(tipsUrl).then(result => {
+            this.$http.get(tipsUrl).then(function (result) {
                 this.tips = result.body.response.tips.items;
-            }, err => {
+            }, function (err) {
                 console.log('error!')
             });
 
-            this.$http.get(photosUrl).then(result => {
+            this.$http.get(photosUrl).then(function (result) {
                 this.photos = result.body.response.photos.items;
-            }, err => {
+            }, function (err) {
                 console.log('error!')
             });
         },
@@ -81,6 +82,6 @@ var detail = new Vue({
         }
     },
     filters: {}
-})
+});
 
 detail.placeDetail();

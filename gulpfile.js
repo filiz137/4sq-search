@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     cleanCSS = require('gulp-clean-css'),
     autoprefixer = require('gulp-autoprefixer'),
+    babel = require('gulp-babel'),
     browserSync = require('browser-sync').create();
 
 gulp.task('serve', ['sass'], function() {
@@ -26,6 +27,12 @@ gulp.task('sass', function () {
 		}))
     .pipe(gulp.dest("./assets/css"))
     .pipe(browserSync.stream());
+});
+
+gulp.task('js', function () {
+  return gulp.src("./assets/js/*.js")
+  .pipe(babel({ presets: ['es2015'] }))
+    .pipe(gulp.dest("./assets/js/es"));
 });
 
 
